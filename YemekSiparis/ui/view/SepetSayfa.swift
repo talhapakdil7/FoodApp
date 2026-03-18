@@ -29,7 +29,16 @@ struct SepetSayfa: View {
                     
                 }
                 .padding(10)
-                .navigationTitle("Sepetim")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        HStack(spacing: 8) {
+                            Image(systemName: "cart.fill")
+                            Text("Sepetim")
+                                .font(.system(size: 18, weight: .semibold))
+                        }
+                    }
+                }
                 .onAppear {
                     viewModel.SepettekileriGetir()
                 }

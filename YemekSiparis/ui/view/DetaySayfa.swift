@@ -4,6 +4,7 @@ struct DetaySayfa: View {
     var yemek: yemekler = yemekler()
     
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject private var favorites: FavoritesStore
     @State private var adet = 2
     
      var viewmodel = DetaySayfaViewModel()
@@ -30,11 +31,11 @@ struct DetaySayfa: View {
                 Spacer()
                 
                 Button {
-                    print("favori")
+                    favorites.toggleFavori(yemek)
                 } label: {
-                    Image(systemName: "heart.fill")
+                    Image(systemName: favorites.isFavori(yemek) ? "heart.fill" : "heart")
                         .font(.title2)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(favorites.isFavori(yemek) ? .red : .gray)
                 }
             }
             .padding()

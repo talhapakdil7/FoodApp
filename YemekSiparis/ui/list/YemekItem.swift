@@ -20,11 +20,17 @@ struct YemekItem: View {
                VStack(spacing: 15)
                {
                    AsyncImage(url: URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(yemek.yemek_resim_adi!)")) { image in
-                       image.resizable()
-                    
-                   }placeholder: {
-                   ProgressView()
+                       image
+                           .resizable()
+                           .scaledToFit()
+                           .frame(height: 120)
+                           .frame(maxWidth: .infinity)
+                           .clipShape(RoundedRectangle(cornerRadius: 14))
+                   } placeholder: {
+                       ProgressView()
+                           .frame(height: 120)
                    }
+                   .padding(.top, 6)
                    
                    Text("\(yemek.yemek_adi!)")
                        .font(.system(size: 24))

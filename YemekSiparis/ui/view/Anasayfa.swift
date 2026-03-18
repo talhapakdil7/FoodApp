@@ -23,6 +23,7 @@ struct Anasayfa: View {
     @StateObject private var viewModel = AnasayfaViewModel()
     @State private var aramaKelimesi = ""
     @State private var secilenYemek: yemekler? = nil
+    @State private var showFavoriler = false
 
     var body: some View {
         GeometryReader { geometry in
@@ -47,7 +48,7 @@ struct Anasayfa: View {
                 .toolbar {
                     ToolbarItem(placement: .topBarLeading) {
                         Button("favoriler") {
-                            print("favoriler tiklandi")
+                            showFavoriler = true
                         }
                         .foregroundStyle(.white)
                     }
@@ -67,6 +68,9 @@ struct Anasayfa: View {
                 .searchable(text: $aramaKelimesi, prompt: "Yemek ara...")
                 .sheet(item: $secilenYemek) { yemek in
                     DetaySayfa(yemek: yemek)
+                }
+                .sheet(isPresented: $showFavoriler) {
+                    FavorilerSayfa(yemeklerListesi: viewModel.yemeklerListesi)
                 }
             }
         }
