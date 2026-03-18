@@ -22,6 +22,15 @@ Uygulama, **internet üzerinden** uzaktaki sunucuya istek atıyor. (Base URL):
 - Sepetteki yemekler: `sepettekiYemekleriGetir.php` (POST)
 - Sepete ekleme: `sepeteYemekEkle.php` (POST)
 
+## Ekran Görüntüleri
+Simülatör ekran görüntüleri:
+
+<p align="center">
+  <img src="YemekSiparis/Simulator%20Screenshot%20-%20iphone%2015%20plus%20-%202026-03-19%20at%2001.26.19.png" width="32%" />
+  <img src="YemekSiparis/Simulator%20Screenshot%20-%20iphone%2015%20plus%20-%202026-03-19%20at%2001.26.36.png" width="32%" />
+  <img src="YemekSiparis/Simulator%20Screenshot%20-%20iphone%2015%20plus%20-%202026-03-19%20at%2001.26.40.png" width="32%" />
+</p>
+
 ## ATS / HTTP
 `Info.plist` içinde `NSAllowsArbitraryLoads = true` kullanıldığı için, **internet üzerinden HTTP** istekleri çalışıyor.
 
